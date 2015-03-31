@@ -45,7 +45,8 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'decohere_me',
+    'app_home',
+    'app_decohere',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -60,9 +61,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'decohere_me.urls'
+ROOT_URLCONF = 'tlake_project.urls'
 
-WSGI_APPLICATION = 'decohere_me.wsgi.application'
+WSGI_APPLICATION = 'tlake_project.wsgi.application'
 
 
 # Database
