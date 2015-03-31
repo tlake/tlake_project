@@ -1,0 +1,1 @@
+web: gunicorn tlake_project.wsgi --log-file -
