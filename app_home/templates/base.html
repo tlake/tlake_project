@@ -18,14 +18,33 @@
         <div class="container">
 
             <nav class='navbar navbar-inverse navbar-fixed-top'>
-                <div class='container-fluid'>
+                <div class='container'>
 
+                    <div class='container-fluid'>
                     <ul class='nav navbar-nav'>
 
                         <li>
+                            <a class='navbar-brand' href=#>
+                                <strong>
+                                    About
+                                </strong>
+                            </a>
                         </li>
 
                         <li>
+                            <a class='navbar-brand' href=#>
+                                <strong>
+                                    Projects
+                                </strong>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class='navbar-brand' href=#>
+                                <strong>
+                                    Blog
+                                </strong>
+                            </a>
                         </li>
 
                     </ul>
@@ -34,6 +53,7 @@
                             a django project by tanner lake
                         </p>
 
+                    </div>
                 </div>
             </nav>
 
@@ -43,11 +63,9 @@
                     <div class='page-header'>
                         <div class='panel-default'>
 
-                            <h1>
-                                {% block pagehead %}
-                                    Generic Page Header
-                                {% endblock %}
-                            </h1>
+                            {% block pagehead %}
+                                Generic Page Header
+                            {% endblock %}
 
                         </div>
                     </div>
@@ -89,6 +107,18 @@
                                 <a href="https://github.com/tlake">GitHub</a>!
                             </p>
                         {% endblock%}
+                    </div>
+                </div>
+            </div>
+
+            <div class='container'>
+                <div class='navbar-fixed-bottom'>
+                    <div class='container-fluid'>
+                        <p class='panel-default navbar-right'>
+                            <small>image credit: 
+                            <a href='http://www.jairophoto.com/blog/downtown-seattle-out-of-focus/'>Jairo Rodriguez</a>
+                            </small>
+                        </p>
                     </div>
                 </div>
             </div>

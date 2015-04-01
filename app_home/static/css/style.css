@@ -38,3 +38,10 @@ body {
 .row-top {
     padding-top: 70px;
 }
+
+.navbar-right {
+    padding-right: 10px;
+}
+.navbar-brand {
+    margin-right: 40px;
+}
