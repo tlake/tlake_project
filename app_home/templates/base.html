@@ -38,27 +38,59 @@
             </nav>
 
 
-            <div class='page-header'>
-                <div class='panel-default'>
-                    <h1>{% block pagehead %}Generic Page Header{% endblock %}</h1>
+            <div class='row'>
+                <div class='col-sm-7'>
+                    <div class='page-header'>
+                        <div class='panel-default'>
+
+                            <h1>
+                                {% block pagehead %}
+                                    Generic Page Header
+                                {% endblock %}
+                            </h1>
+
+                        </div>
+                    </div>
+
+
+                    {% block content %}
+                        <h2>
+                            Generic title
+                        </h2>
+
+                        <p>
+                            Nothing interesting yet
+                        </p>
+                    {% endblock %}
+
                 </div>
-            </div>
 
+                <div class='col-sm-4 col-sm-offset-1'>
+                    <div class='panel-default'>
+                        {% block sidebar %}
+                            <h2>
+                                Need Something?
+                            </h2>
+                            <p>
+                                You can find me, or things relating to me, at 
+                                several places around the web!
+                            </p>
 
-            {% block content %}
+                            <p>
+                                Wanna see if I have anything quick and witty to say?
+                                Find me on Twitter
+                                <a href="https://twitter.com/Tanotaur">
+                                @Tanotaur</a>!
+                            </p>
 
-                <h2>
-                    Generic title
-                </h2>
-
-                <p>
-                    Nothing interesting yet
-                </p>
-
-            {% endblock %}
-
-            <div class='btn-group' role='group'>
-
+                            <p>
+                                Skeptical that I know anything whatsoever about
+                                code? Confirm or shatter your suspicions with my
+                                <a href="https://github.com/tlake">GitHub</a>!
+                            </p>
+                        {% endblock%}
+                    </div>
+                </div>
             </div>
 
         </div>
