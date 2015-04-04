@@ -45,3 +45,7 @@ body {
 .navbar-brand {
     margin-right: 40px;
 }
+
+article.panel-default {
+    margin-top: 20px;
+}
