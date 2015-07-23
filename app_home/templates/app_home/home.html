@@ -9,7 +9,11 @@
 
 {% block content %}
     <article class='panel-default'>
-        <h2>Welcome!</h2>
+
+        <h2>{{ object_list.latest.title }}</h2>
+
+        <p>{{ object_list.latest.body|linebreaks }}</p>
+      <!--   <h2>Welcome!</h2>
 
         <p>
             I'm a budding programmer and web developer living in Seattle. I'm still 
@@ -26,7 +30,7 @@
             create) a blog. I doubt I'll update with any regularity, but it will
             probably prove helpful for me to document various parts of my coding
             journey.
-        </p>
+        </p> -->
     </article>
-    
+
 {% endblock %}
