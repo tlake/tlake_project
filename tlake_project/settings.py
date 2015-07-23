@@ -48,6 +48,7 @@ LOCAL_APPS = (
     'app_home',
     'app_decohere',
     'app_blog',
+    'app_projects',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -88,7 +89,7 @@ USE_TZ = True
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 # Enable Connection Pooling (if desired)
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
@@ -119,4 +120,3 @@ try:
     from local_settings import *
 except ImportError:
     pass
-

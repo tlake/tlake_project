@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
-from app_home.views import HomePageView
+from app_projects.views import ProjectsListView
+
 
 urlpatterns = patterns(
     # Examples:
@@ -7,6 +8,6 @@ urlpatterns = patterns(
     # url(r'^blog/', include('blog.urls')),
 
     '',
-    url(r'^$', HomePageView.as_view(), name='app_home-home'),
+    url(r'^$', ProjectsListView.as_view(), name='app_projects-projects_list'),
 
 )

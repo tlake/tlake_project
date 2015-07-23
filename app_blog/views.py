@@ -1,6 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import (ListView, DetailView, )
-from app_blog.models import (Post, Comment, )
+from django.views.generic import ListView, DetailView
+from app_blog.models import Post
 
 
 class BlogHomeView(ListView):
