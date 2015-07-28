@@ -46,7 +46,6 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'app_home',
-    'app_decohere',
     'app_blog',
     'app_projects',
 )
