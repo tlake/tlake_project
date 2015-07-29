@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}tlake - blog{% endblock %}
+
+{% block pagehead %}
+    <h1>
+        Blog
+    </h1>
+{% endblock %}
+
+
+{% block content %}
+    <article class='panel-default'>
+        <h2>
+            Alright! 
+        </h2>
+
+        <p>
+            This is going to be the landing page for things blog-related.
+            I might want to put up links for the (x) most-recent posts. I should
+            do some research on what other people have for their start-of-blog
+            page.
+        </p>
+    </article>
+
+    {% for object in object_list %}
+        <article class='panel-default'>
+            <h2>
+                <a href="{% url 'post_detail' object.slug %}">
+                    {{ object.title }}
+                </a>
+            </h2>
+
+            <p>
+                {{ object.created }}
+            </p>
+        </article>
+    {% endfor %}
+
+{% endblock %}

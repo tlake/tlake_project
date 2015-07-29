@@ -1,0 +1,51 @@
+html {
+    background: url("../images/background.jpg") no-repeat left center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+    padding-top: 140px;
+    background: transparent;
+    font-size: 100%;
+}
+
+.navbar {
+    font-size: 1.85em;
+}
+
+.navbar-inverse {
+    border-color: #9d9d9d;
+}
+
+.page-header {
+    border-color: #9d9d9d;
+    padding-bottom: 20px;
+    margin-top: 1px;
+}
+
+.panel-default {
+    font-size: 2em;
+    color: #9d9d9d;
+    background-color: #222;
+    padding: 10px 20px 10px;
+    border-color: #080808;
+    border-radius: 10px;
+}
+
+.row-top {
+    padding-top: 70px;
+}
+
+.navbar-right {
+    padding-right: 10px;
+}
+.navbar-brand {
+    margin-right: 40px;
+}
+
+article.panel-default {
+    margin-top: 20px;
+}

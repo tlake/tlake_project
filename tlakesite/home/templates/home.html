@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}tlake{% endblock %}
+
+{% block pagehead %}
+    <h1>Home</h1>
+{% endblock %}
+
+
+{% block content %}
+    <article class='panel-default'>
+
+        <h2>{{ object_list.latest.title }}</h2>
+
+        <p>{{ object_list.latest.body|linebreaks }}</p>
+      <!--   <h2>Welcome!</h2>
+
+        <p>
+            I'm a budding programmer and web developer living in Seattle. I'm still 
+            very much in a
+            beginning/learning phase, but I'm most experienced with Python 2.7 (and
+            some 3.4, too). I'm learning Django, in part so I can create this site
+            here, and I'm also expanding my knowledge of HTML/CSS/JS.
+        </p>
+
+        <p>
+            The goal of this space is twofold: First, I intend for it to serve as 
+            a home for any projects or apps that I create and might like to showcase.
+            Second, I'm thinking that I might want to start (and also, learn to
+            create) a blog. I doubt I'll update with any regularity, but it will
+            probably prove helpful for me to document various parts of my coding
+            journey.
+        </p> -->
+    </article>
+
+{% endblock %}
