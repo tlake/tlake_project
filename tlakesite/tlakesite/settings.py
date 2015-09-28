@@ -22,8 +22,6 @@ SECRET_KEY = 'e8)ya94im+a8_d60a54nqjly1jq*5_+hzn*9n(7c=__1t$#3o&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -36,6 +34,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'zinnia',
+    'django.contrib.sites',
+    'django_comments',
+    'mptt',
+    'tagging',
     'tlakesite',
     'home',
     'blog',
@@ -52,9 +55,29 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.contrib.auth.context_processors.auth',
+            'django.template.context_processors.i18n',
+            'django.template.context_processors.request',
+            'django.contrib.messages.context_processors.messages',
+            'zinnia.context_processors.version',  # Optional
+        ],
+        'debug': True,
+    }
+}]
+
 ROOT_URLCONF = 'tlakesite.urls'
 
 WSGI_APPLICATION = 'tlakesite.wsgi.application'
+
+
+# Zinnia configuration
+
+ZINNIA_MARKUP_LANGUAGE = 'restructuredtexts'
 
 
 # Database
@@ -79,6 +102,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+SITE_ID = 1
 
 
 # Static files (CSS, JavaScript, Images)
