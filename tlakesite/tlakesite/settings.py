@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'tlakesite.wsgi.application'
 
 # Zinnia configuration
 
-ZINNIA_MARKUP_LANGUAGE = 'restructuredtexts'
+ZINNIA_MARKUP_LANGUAGE = 'restructuredtext'
 
 
 # Database
@@ -110,3 +110,4 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
