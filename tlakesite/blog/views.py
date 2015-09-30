@@ -4,7 +4,7 @@ from .models import Post
 
 class BlogHomeView(ListView):
     model = Post
-    template_name = 'templates/blog.html'
+    template_name = 'blog.html'
 
 
 class PostView(DetailView):
