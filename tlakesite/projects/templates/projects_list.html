@@ -14,11 +14,17 @@
     {% for object in object_list %}
         <article class='panel-default'>
 
-            <h2><a href='{{ object.link }}'>
-            {{ object.title }}
-            </a></h2>
+            <h2>{{ object.title }}</h2>
 
             <p>{{ object.desc }}</p>
+
+            <p>
+                <a href='{{ object.site_link }}'>{{ object.site_link }}</a>
+                {% if object.site_link and object.code_link %}
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                {% endif %}
+                <a href='{{ object.code_link }}'>{{ object.code_link }}</a>
+            </p>
 
         </article>
     {% endfor %}
