@@ -7,8 +7,8 @@ from django.utils import timezone
 class Project(models.Model):
     title = models.CharField(max_length=127)
     desc = models.TextField()
-    site_link = models.URLField(max_length=255, null=True, blank=True)
-    code_link = models.URLField(max_length=255, null=True, blank=True)
+    site_link = models.CharField(max_length=255, null=True, blank=True)
+    code_link = models.CharField(max_length=255, null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
