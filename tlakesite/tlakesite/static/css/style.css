@@ -42,8 +42,13 @@ body {
 .navbar-right {
     padding-right: 10px;
 }
+
 .navbar-brand {
     margin-right: 40px;
+}
+
+#content-col {
+    padding-bottom: 60px;
 }
 
 article.panel-default {
