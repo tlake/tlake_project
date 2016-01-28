@@ -18,23 +18,7 @@ class HomePageView(ListView):
     template_name = 'home.html'
 
     def resume_link(self):
-        try:
-            import argparse
-            flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-        except ImportError:
-            flags = None
-
-        # _folder_id = "0B6D4ecmbxciiekhzYXRHQ2duelU"
-        home_dir = os.path.expanduser('~')
         _folder_id = ResumeFolderID.objects.first().folder_id
-
-        # CLIENT_SECRET_FILE is not part of project; must be created on the 
-        # machine itself.
-        # See https://developers.google.com/drive/v2/web/quickstart/python
-        # for details.
-        SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
-        CLIENT_SECRET_FILE = os.path.join(home_dir, 'client_secret.json')
-        APPLICATION_NAME = 'Drive API Python Quickstart'
 
         def _get_credentials():
             """Gets valid user credentials from storage.
@@ -45,7 +29,18 @@ class HomePageView(ListView):
             Returns:
                 Credentials, the obtained credential.
             """
+
+            # client_secret.json is not part of project; it must be created
+            # on the machine itself.
+            # See https://developers.google.com/drive/v2/web/quickstart/python
+            # for details.
+
+            home_dir = os.path.expanduser('~')
             credential_dir = os.path.join(home_dir, '.credentials')
+            SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'           
+            CLIENT_SECRET_FILE = os.path.join(home_dir, 'client_secret.json')            
+            APPLICATION_NAME = 'Drive API Python Quickstart'   
+
             if not os.path.exists(credential_dir):
                 os.makedirs(credential_dir)
             credential_path = os.path.join(credential_dir,
