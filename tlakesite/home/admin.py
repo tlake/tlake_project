@@ -1,5 +1,6 @@
 from django.contrib import admin
-from home.models import HomePageMessage
+from .models import HomePageMessage, ResumeFolderID
 
 
 admin.site.register(HomePageMessage)
+admin.site.register(ResumeFolderID)

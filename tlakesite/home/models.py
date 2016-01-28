@@ -14,3 +14,12 @@ class HomePageMessage(models.Model):
 
     def __str__(self):
         return "HomePageMessage: {}, {}".format(self.created, self.title)
+
+
+@python_2_unicode_compatible
+class ResumeFolderID(models.Model):
+    folder_id = models.CharField(max_length=127)
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return "ResumeFolderID: {}".format(self.folder_id)
