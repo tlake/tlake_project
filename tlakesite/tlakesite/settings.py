@@ -86,7 +86,8 @@ ZINNIA_MARKUP_LANGUAGE = 'restructuredtext'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tlakesite',
+        'NAME': 'tlakesite_db',
+        'PASSWORD': 'postgres'
     }
 }
 

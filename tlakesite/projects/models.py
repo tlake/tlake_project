@@ -11,5 +11,8 @@ class Project(models.Model):
     code_link = models.CharField(max_length=255, null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        ordering = ["-date_created"]
+
     def __str__(self):
         return "Project: {}".format(self.title)
