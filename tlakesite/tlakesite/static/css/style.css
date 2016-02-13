@@ -1,56 +1,67 @@
+/* line 1, ../sass/style.sass */
 html {
-    background: url("../images/background.jpg") no-repeat left center fixed; 
+  background: url("../images/background.jpg") no-repeat left center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+/* line 8, ../sass/style.sass */
 body {
-    padding-top: 140px;
-    background: transparent;
-    font-size: 100%;
+  padding-top: 140px;
+  background: transparent;
+  font-size: 100%;
 }
 
+/* line 13, ../sass/style.sass */
 .navbar {
-    font-size: 1.85em;
+  font-size: 1.85em;
 }
 
+/* line 16, ../sass/style.sass */
 .navbar-inverse {
-    border-color: #9d9d9d;
+  border-color: #9d9d9d;
 }
 
+/* line 19, ../sass/style.sass */
 .page-header {
-    border-color: #9d9d9d;
-    padding-bottom: 20px;
-    margin-top: 1px;
+  border-color: #9d9d9d;
+  padding-bottom: 20px;
+  margin-top: 1px;
 }
 
+/* line 24, ../sass/style.sass */
 .panel-default {
-    font-size: 2em;
-    color: #9d9d9d;
-    background-color: #222;
-    padding: 10px 20px 10px;
-    border-color: #080808;
-    border-radius: 10px;
+  font-size: 2em;
+  color: #9d9d9d;
+  background-color: #222;
+  padding: 10px 20px 10px;
+  border-color: #080808;
+  border-radius: 10px;
 }
 
+/* line 32, ../sass/style.sass */
 .row-top {
-    padding-top: 70px;
+  padding-top: 70px;
 }
 
+/* line 35, ../sass/style.sass */
 .navbar-right {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
+/* line 38, ../sass/style.sass */
 .navbar-brand {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
+/* line 41, ../sass/style.sass */
 #content-col {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
+/* line 44, ../sass/style.sass */
 article.panel-default {
-    margin-top: 20px;
+  margin-top: 20px;
 }
