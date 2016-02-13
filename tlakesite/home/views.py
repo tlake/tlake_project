@@ -1,7 +1,6 @@
 from __future__ import print_function
 
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 from .models import HomePageMessage, ResumeFolderID
 
 import httplib2
@@ -17,14 +16,19 @@ class HomePageView(ListView):
     model = HomePageMessage
     template_name = 'home.html'
 
+    SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
+    CLIENT_SECRET_FILE = 'client_secret.json'
+    APPLICATION_NAME = 'Drive API Python Quickstart'
+
     def resume_link(self):
         _folder_id = ResumeFolderID.objects.first().folder_id
 
         def _get_credentials():
             """Gets valid user credentials from storage.
 
-            If nothing has been stored, or if the stored credentials are invalid,
-            the OAuth2 flow is completed to obtain the new credentials.
+            If nothing has been stored, or if the stored credentials are
+            invalid, the OAuth2 flow is completed to obtain the new
+            credentials.
 
             Returns:
                 Credentials, the obtained credential.
@@ -37,9 +41,9 @@ class HomePageView(ListView):
 
             home_dir = os.path.expanduser('~')
             credential_dir = os.path.join(home_dir, '.credentials')
-            SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'           
-            CLIENT_SECRET_FILE = os.path.join(home_dir, 'client_secret.json')            
-            APPLICATION_NAME = 'Drive API Python Quickstart'   
+            SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
+            CLIENT_SECRET_FILE = os.path.join(home_dir, 'client_secret.json')
+            APPLICATION_NAME = 'Drive API Python Quickstart'
 
             if not os.path.exists(credential_dir):
                 os.makedirs(credential_dir)
@@ -49,12 +53,10 @@ class HomePageView(ListView):
             store = oauth2client.file.Storage(credential_path)
             credentials = store.get()
             if not credentials or credentials.invalid:
-                flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+                flow = client.flow_from_clientsecrets(
+                    CLIENT_SECRET_FILE, SCOPES)
                 flow.user_agent = APPLICATION_NAME
-                if flags:
-                    credentials = tools.run_flow(flow, store, flags)
-                else: # Needed only for compatibility with Python 2.6
-                    credentials = tools.run(flow, store)
+                credentials = tools.run_flow(flow, store)
                 print('Storing credentials to ' + credential_path)
             return credentials
 
@@ -73,4 +75,3 @@ class HomePageView(ListView):
         file_id = _get_file_id(service, _folder_id)
 
         return "https://drive.google.com/file/d/" + file_id + "/view"
-
