@@ -16,10 +16,6 @@ class HomePageView(ListView):
     model = HomePageMessage
     template_name = 'home.html'
 
-    SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
-    CLIENT_SECRET_FILE = 'client_secret.json'
-    APPLICATION_NAME = 'Drive API Python Quickstart'
-
     def resume_link(self):
         _folder_id = ResumeFolderID.objects.first().folder_id
 
@@ -33,6 +29,11 @@ class HomePageView(ListView):
             Returns:
                 Credentials, the obtained credential.
             """
+            try:
+                import argparse
+                flags = tools.argparser.parse_args(args=[])
+            except ImportError:
+                flags = None
 
             # client_secret.json is not part of project; it must be created
             # on the machine itself.
@@ -41,8 +42,9 @@ class HomePageView(ListView):
 
             home_dir = os.path.expanduser('~')
             credential_dir = os.path.join(home_dir, '.credentials')
+
             SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly'
-            CLIENT_SECRET_FILE = os.path.join(home_dir, 'client_secret.json')
+            CLIENT_SECRET_FILE = os.path.join(credential_dir, 'client_secret.json')
             APPLICATION_NAME = 'Drive API Python Quickstart'
 
             if not os.path.exists(credential_dir):
@@ -56,7 +58,10 @@ class HomePageView(ListView):
                 flow = client.flow_from_clientsecrets(
                     CLIENT_SECRET_FILE, SCOPES)
                 flow.user_agent = APPLICATION_NAME
-                credentials = tools.run_flow(flow, store)
+                if flags:
+                    credentials = tools.run_flow(flow, store, flags)
+                else: # Needed only for compatibility with Python 2.6
+                    credentials = tools.run(flow, store)
                 print('Storing credentials to ' + credential_path)
             return credentials
 
@@ -64,13 +69,15 @@ class HomePageView(ListView):
             """ Returns the ID of the first file found inside the
             folder designated by folder_id.
             """
-            children = service.children().list(folderId=folder_id).execute()
+            files = service.files().list(
+                        q="'0B6D4ecmbxciiekhzYXRHQ2duelU' in parents"
+                    ).execute()
+            return files.get('files')[0]['id']
 
-            return children.get('items', [])[0]['id']
 
         credentials = _get_credentials()
         http = credentials.authorize(httplib2.Http())
-        service = discovery.build('drive', 'v2', http=http)
+        service = discovery.build('drive', 'v3', http=http)
 
         file_id = _get_file_id(service, _folder_id)
 
