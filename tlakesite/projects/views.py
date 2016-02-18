@@ -3,5 +3,5 @@ from .models import Project
 
 
 class ProjectsListView(ListView):
-    model = Project
+    queryset = Project.objects.order_by("-date_created")
     template_name = 'projects_list.html'
