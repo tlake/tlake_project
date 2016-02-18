@@ -75,10 +75,15 @@ WSGI_APPLICATION = 'tlakesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tlakesite',
+        'NAME': 'tlakesite_db',
+        'USER': DB_USER,
+        'PASSWORD': DB_PASS,
     }
 }
 
