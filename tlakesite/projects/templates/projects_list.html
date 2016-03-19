@@ -16,7 +16,7 @@
 
             <h2>{{ object.title }}</h2>
 
-            <p>{{ object.desc }}</p>
+            <p>{{ object.desc|linebreaks }}</p>
 
             <p>
                 <a target="_blank" href='http://{{ object.site_link }}'>{{ object.site_link }}</a>
