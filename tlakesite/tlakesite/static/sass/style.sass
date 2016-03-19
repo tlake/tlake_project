@@ -1,9 +1,24 @@
+
+$default-bg-color: darken(slategray, 40%)
+$bg-radgrad-color: darken(slategray, 40%)
+$bg-lingrad-color: darken(#A8B1BB, 50%)
+$rg1: radial-gradient(circle, transparent 20%, $bg-radgrad-color 20%, $bg-radgrad-color 80%, transparent 80%, transparent)
+$rg2: radial-gradient(circle, transparent 20%, $bg-radgrad-color 20%, $bg-radgrad-color 80%, transparent 80%, transparent) 50px 50px
+$lg1: linear-gradient($bg-lingrad-color 8px, transparent 2px) 0 -4px
+$lg2: linear-gradient(90deg, $bg-lingrad-color 8px, transparent 8px) -4px 0
+
+=default_bg
+  background: $rg1, $rg2, $lg1, $lg2
+  background-color: $default_bg_color
+  background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px
+
+
 html
-  background: url("../images/background.jpg") no-repeat left center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+  +default_bg
 
 body
   padding-top: 140px
