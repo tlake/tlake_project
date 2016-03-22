@@ -1,3 +1,5 @@
 env
 *.pyc
 staticfiles
+__pycache__/
+.sass-cache/
