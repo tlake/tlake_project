@@ -3,6 +3,8 @@
 <html>
 <head>
 
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>
     {% block title %}
     Generic title
@@ -16,80 +18,98 @@
 
   <div id='page'>
 
-    <nav>
+    <div id='page-header'>
 
-      <ul id='nav-list'>
+      <nav>
+        <ul id='nav-list'>
 
-        <li class='nav-item'>
-          <a class='nav-link' href="{% url 'home' %}">
-            <strong>Home</strong>
-          </a>
-        </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="{% url 'home' %}">
+              <strong>Home</strong>
+            </a>
+          </li>
 
-        <li class='nav-item'>
-          <a class='nav-link' href="{% url 'projects_list' %}">
-            <strong>Projects</strong>
-          </a>
-        </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="{% url 'projects_list' %}">
+              <strong>Projects</strong>
+            </a>
+          </li>
 
-        <li class='nav-item'>
-          <a class='nav-link' href="http://blog.tannerjlake.com">
-            <strong>Blog</strong>
-          </a>
-        </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="http://blog.tannerjlake.com">
+              <strong>Blog</strong>
+            </a>
+          </li>
 
-      </ul>
+        </ul>
+      </nav>
 
-      <p class="nav-note">
-        a django project by tanner lake
-      </p>
+      <div class='page-header-text'>
+        <h1>Tanner Lake</h1>
+        <h2>Web Developer</h2>
+      </div>
 
-    </nav>
+    </div>
 
 
     <div id='content'>
 
-      <section class='main'>
-        <div class='section-header'>
-          {% block pagehead %}Generic Page Header{% endblock %}
-        </div>
+      {% block page_header %}
+        <h3>Generic Page Header</h3>
+      {% endblock %}
 
-        <article class=''>
-          {% block content %}
-            <h2>Generic title</h2>
-            <p>Nothing interesting yet</p>
+      {% block main_section %}
+        <section class='main'>
+          {% block main_section_header %}
+            <article class='section-header'>
+              <h4>Generic Section Header</h4>
+            </article>
           {% endblock %}
-        </article>
 
-      </section>
+          {% block main_section_content %}
+            <article class='section-content'>
+              <p>Content content content content</p>
+            </article>
+          {% endblock %}
+        </section>
+      {% endblock %}
 
-      <section class='sidebar'>
-        {% block sidebar %}
-          <h2>Need Something?</h2>
-          <p>
-            You can find me, or things relating to me, at
-            several places around the web!
-          </p>
+      {% block sidebar_section %}
+        <section class='sidebar'>
+          {% block sidebar_section_header %}
+            <article class="section-header">
+              <h4>Need Something?</h4>
+            </article>
+          {% endblock %}
 
-          <p>
-            Wanna see if I have anything quick and witty to say?
-            Find me on Twitter
-            <a href="https://twitter.com/Tanotaur">@Tanotaur</a>!
-          </p>
+          {% block sidebar_section_content %}
+            <article class="section-content">
+              <p>
+                You can find me, or things relating to me, at
+                several places around the web!
+              </p>
 
-          <p>
-            Curious about what I've been working on? Browse
-            through my <a href="https://github.com/tlake">GitHub</a>!
-          </p>
+              <p>
+                Wanna see if I have anything quick and witty to say?
+                Find me on Twitter
+                <a href="https://twitter.com/Tanotaur">@Tanotaur</a>!
+              </p>
 
-          <p>
-            In the market for a developer? I'm looking for work!
-            Please take a moment to look over my
-            <a href="https://www.linkedin.com/in/tannerlake">LinkedIn</a>
-            and to read through my <a href="{{ view.resume_link }}">resume</a>.
-          </p>
-        {% endblock%}
-      </section>
+              <p>
+                Curious about what I've been working on? Browse
+                through my <a href="https://github.com/tlake">GitHub</a>!
+              </p>
+
+              <p>
+                In the market for a developer? I'm looking for work!
+                Please take a moment to look over my
+                <a href="https://www.linkedin.com/in/tannerlake">LinkedIn</a>
+                and to read through my <a href="{{ view.resume_link }}">resume</a>.
+              </p>
+            </article>
+          {% endblock%}
+        </section>
+      {% endblock %}
 
     </div>
 

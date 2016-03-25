@@ -2,17 +2,19 @@
 
 {% block title %}tlake{% endblock %}
 
-{% block pagehead %}
-    <h1>Home</h1>
+{% block page_header %}
+  <h3>Home</h3>
+{% endblock %}
+
+{% block main_section_header %}
+  <article class="section-header">
+    <h4>{{ object_list.latest.title }}</h4>
+  </article>
 {% endblock %}
 
 
-{% block content %}
-    <article class='panel-default'>
-
-        <h2>{{ object_list.latest.title }}</h2>
-
-        <p>{{ object_list.latest.body|linebreaks }}</p>
-    </article>
-
+{% block main_section_content %}
+  <article class="section-content">
+    <p>{{ object_list.latest.body|linebreaks }}</p>
+  </article>
 {% endblock %}
