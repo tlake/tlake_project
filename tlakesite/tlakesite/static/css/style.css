@@ -189,10 +189,127 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-section {
-  background-color: #cce; }
+body {
+  margin: unset;
+  color: #6666a0;
+  background-color: rgba(240, 240, 255, 0.8);
+  text-align: center; }
 
-article {
-  border: 2px solid black; }
+h1 {
+  font-size: 2.02729em; }
+
+h2 {
+  font-size: 1.80203em; }
+
+h3 {
+  font-size: 1.60181em; }
+
+h4 {
+  font-size: 1.42383em; }
+
+h5 {
+  font-size: 1.26563em; }
+
+h6 {
+  font-size: 1.125em; }
+  @media screen and (min-width: 49em) {
+    h6 {
+      margin: 1em; } }
+
+#page-header {
+  height: 13em;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/ballet-800.jpg"); }
+  @media screen and (min-width: 27em) {
+    #page-header {
+      height: 20em;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/ballet-1024.jpg"); } }
+  @media screen and (min-width: 49em) {
+    #page-header {
+      height: 25em;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/ballet-1440.jpg"); } }
+  #page-header .page-header-text {
+    color: #e6ebff; }
+    @media screen and (min-width: 27em) {
+      #page-header .page-header-text {
+        margin-top: 3em; } }
+    @media screen and (min-width: 49em) {
+      #page-header .page-header-text {
+        margin-top: 6em; } }
+  #page-header nav {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em 0.5em 2em; }
+    #page-header nav::after {
+      clear: both;
+      content: "";
+      display: block; }
+    #page-header nav .nav-item {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      #page-header nav .nav-item:last-child {
+        margin-right: 0; }
+      #page-header nav .nav-item:nth-child(3n) {
+        margin-right: 0; }
+      #page-header nav .nav-item:nth-child(3n+1) {
+        clear: left; }
+    #page-header nav .nav-link {
+      display: block;
+      padding: 0.5em 0em;
+      color: #e6ebff;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid #e6ebff;
+      border-radius: 5px; }
+      #page-header nav .nav-link:hover {
+        color: white;
+        background-color: rgba(78, 78, 78, 0.46); }
+
+#content {
+  width: 100%; }
+  #content h3 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin: unset; }
+  #content section {
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.8); }
+  #content .subsection:not(:first-child) {
+    margin-top: 3em; }
+  #content .sidebar {
+    margin-top: 3em; }
+  @media screen and (min-width: 27em) {
+    #content {
+      padding: 1em 3em; } }
+  @media screen and (min-width: 49em) {
+    #content .main {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 57.35098%;
+      margin-left: 8.5298%; }
+      #content .main:last-child {
+        margin-right: 0; }
+      #content .main .subsection {
+        margin: 1em 0em; }
+    #content .sidebar {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      margin-top: 0em; }
+      #content .sidebar:last-child {
+        margin-right: 0; } }
 
 /*# sourceMappingURL=style.css.map */

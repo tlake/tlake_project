@@ -2,8 +2,152 @@
 @import "neat/neat"
 @import "base/base"
 
-section
-  background-color: #cce
 
-article
-  border: 2px solid black
+// Breakpoints
+$bp-tablet: new-breakpoint(min-width 27em)
+$bp-desktop: new-breakpoint(min-width 49em)
+
+// Header image
+$header-image-height-mobile: 13em
+$header-image-height-tablet: 20em
+$header-image-height-desktop: 25em
+
+$header-image-mask-color: rgba(0, 0, 0, 0.3)
+$header-image-mask: linear-gradient($header-image-mask-color, $header-image-mask-color)
+
+// Coloration
+$base-font-color: rgba(102, 102, 160, 1)
+$action-color: rgba(230, 235, 255, 1)
+
+$body-bg-color: rgba(240, 240, 255, 0.8)
+
+$nav-btn-bg-color: rgba(0, 0, 0, 0.4)
+$nav-btn-bg-color-hover: rgba(0, 0, 0, 1)
+
+// <h*> tag sizing scale
+$heading-scale-ratio: $major-second
+$heading-scale-base: 1em
+
+
+// ################################
+// Base Styles
+// ################################
+
+body
+  margin: unset
+  color: $base-font-color
+  background-color: $body-bg-color
+  text-align: center
+
+h1
+  font-size: modular-scale(6, $heading-scale-base, $heading-scale-ratio)
+h2
+  font-size: modular-scale(5, $heading-scale-base, $heading-scale-ratio)
+h3
+  font-size: modular-scale(4, $heading-scale-base, $heading-scale-ratio)
+h4
+  font-size: modular-scale(3, $heading-scale-base, $heading-scale-ratio)
+h5
+  font-size: modular-scale(2, $heading-scale-base, $heading-scale-ratio)
+h6
+  font-size: modular-scale(1, $heading-scale-base, $heading-scale-ratio)
+
+  @include media($bp-desktop)
+    margin: 1em
+
+
+// ################################
+// Page Header
+// ################################
+#page-header
+  height: $header-image-height-mobile
+  background-color: black
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  background-image: $header-image-mask, url('../images/ballet-800.jpg')
+
+  @include media($bp-tablet)
+    height: $header-image-height-tablet
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    background-image: $header-image-mask, url('../images/ballet-1024.jpg')
+
+  @include media($bp-desktop)
+    height: $header-image-height-desktop
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    background-image: $header-image-mask, url('../images/ballet-1440.jpg')
+
+  .page-header-text
+    color: $action-color
+
+    @include media($bp-tablet)
+      margin-top: 3em
+
+    @include media($bp-desktop)
+      margin-top: 6em
+
+  nav
+    @include outer-container
+    padding: 0.5em 0.5em 2em
+
+    .nav-item
+      @include span-columns(4)
+      @include omega(3n)
+
+    .nav-link
+      display: block
+      padding: 0.5em 0em
+      color: $action-color
+      background-color: $nav-btn-bg-color
+      border: 1px solid $action-color
+      border-radius: 5px
+
+      &:hover
+        color: lighten($action-color, 50%)
+        background-color: tint($nav-btn-bg-color, 10%)
+
+
+
+// ################################
+// Content
+// ################################
+
+#content
+  @include fill-parent
+
+  h3
+    padding-top: 1em
+    padding-bottom: 1em
+    margin: unset
+
+  section
+    padding: 2em
+    background-color: lighten($body-bg-color, 10%)
+
+  .subsection:not(:first-child)
+    margin-top: 3em
+
+  .sidebar
+    margin-top: 3em
+
+  @include media($bp-tablet)
+    padding: 1em 3em
+
+
+  @include media($bp-desktop)
+    section
+
+    .main
+      @include span-columns(7)
+      @include shift(1)
+
+      .subsection
+        margin: 1em 0em
+
+    .sidebar
+      @include span-columns(3)
+      margin-top: 0em
