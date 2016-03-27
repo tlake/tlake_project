@@ -1,5 +1,6 @@
 env
 *.pyc
-staticfiles
+staticfiles/
+mediafiles/
 __pycache__/
 .sass-cache/
