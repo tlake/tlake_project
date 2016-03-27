@@ -3,6 +3,10 @@
 @import "base/base"
 
 
+// ################################
+// Variable Definitions
+// ################################
+
 // Breakpoints
 $bp-tablet: new-breakpoint(min-width 27em)
 $bp-desktop: new-breakpoint(min-width 49em)
@@ -18,24 +22,23 @@ $header-image-mask: linear-gradient($header-image-mask-color, $header-image-mask
 // Coloration
 $THEME: green
 
-$base-font-color: rgba(102, 102, 102, 1)
 $action-color: rgba(255, 255, 255, 1)
-$body-bg-color: rgba(240, 240, 240, 0.8)
+$base-font-color: rgba(80, 80, 80, 1)
+$body-bg-color: rgba(180, 180, 180, 0.8)
 
 @if $THEME == green
-  $base-font-color: rgba(102, 160, 102, 1)
-  // $action-color: rgba(230, 255, 235, 1)
-  $body-bg-color: rgba(210, 245, 220, 0.8)
+  $base-font-color: rgba(80, 120, 80, 1)
+  $body-bg-color: rgba(180, 230, 190, 0.8)
 
 @else if $THEME == blue
-  $base-font-color: rgba(102, 102, 160, 1)
-  // $action-color: rgba(230, 235, 255, 1)
-  $body-bg-color: rgba(240, 240, 255, 0.8)
+  $base-font-color: rgba(80, 80, 120, 1)
+  $body-bg-color: rgba(180, 190, 230, 0.8)
 
 @else if $THEME == red
-  $base-font-color: rgba(160, 102, 102, 1)
-  // $action-color: rgba(255, 235, 230, 1)
-  $body-bg-color: rgba(255, 240, 240, 0.8)
+  $base-font-color: rgba(120, 80, 80, 1)
+  $body-bg-color: rgba(230, 180, 190, 0.8)
+
+$panel-bg-color: lighten($body-bg-color, 30%)
 
 $nav-btn-bg-color: rgba(0, 0, 0, 0.4)
 $nav-btn-bg-color-hover: rgba(0, 0, 0, 1)
@@ -43,6 +46,22 @@ $nav-btn-bg-color-hover: rgba(0, 0, 0, 1)
 // <h*> tag sizing scale
 $heading-scale-ratio: $major-second
 $heading-scale-base: 1em
+
+
+// ################################
+// Custom Mixins
+// ################################
+
+=PageHeader
+  background-color: black
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+=ProjectLinkIcons
+  padding-right: 0.25em
+  vertical-align: middle
+  font-family: untitled-font-1
 
 
 // ################################
@@ -77,24 +96,17 @@ h6
 // ################################
 header
   height: $header-image-height-mobile
-  background-color: black
-  background-size: cover
-  background-position: center
-  background-repeat: no-repeat
+  +PageHeader
   background-image: $header-image-mask, url('../images/ballet-800.jpg')
 
   @include media($bp-tablet)
     height: $header-image-height-tablet
-    background-size: cover
-    background-position: center
-    background-repeat: no-repeat
+    +PageHeader
     background-image: $header-image-mask, url('../images/ballet-1024.jpg')
 
   @include media($bp-desktop)
     height: $header-image-height-desktop
-    background-size: cover
-    background-position: center
-    background-repeat: no-repeat
+    +PageHeader
     background-image: $header-image-mask, url('../images/ballet-1440.jpg')
 
   .page-header-text
@@ -142,7 +154,7 @@ header
 
   section
     padding: 1em 2em
-    background-color: lighten($body-bg-color, 10%)
+    background-color: $panel-bg-color
 
   .main
     .project
@@ -164,17 +176,13 @@ header
 
       .site-link
         &:before
+          +ProjectLinkIcons
           content: 'a'
-          padding-right: 0.25em
-          vertical-align: middle
-          font-family: untitled-font-1
 
       .code-link
         &:before
+          +ProjectLinkIcons
           content: 'b'
-          padding-right: 0.25em
-          vertical-align: middle
-          font-family: untitled-font-1
 
   .sidebar
     margin-top: 4em
@@ -191,10 +199,8 @@ header
     .main
       @include span-columns(7)
       @include shift(1)
-      padding-top: 0em
 
       .project
-        margin: 1em 0em
         @include outer-container
 
       .project-screenshot
