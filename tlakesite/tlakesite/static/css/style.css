@@ -191,8 +191,8 @@ hr {
 
 body {
   margin: unset;
-  color: #66a066;
-  background-color: rgba(210, 245, 220, 0.8);
+  color: #507850;
+  background-color: rgba(180, 230, 190, 0.8);
   text-align: center; }
 
 h1 {
@@ -292,14 +292,14 @@ header {
     margin: unset; }
   #content section {
     padding: 1em 2em;
-    background-color: rgba(252, 254, 252, 0.8); }
+    background-color: rgba(255, 255, 255, 0.8); }
   #content .main .project:not(:first-child):before {
     content: "";
     display: block;
     height: 1px;
     width: 100%;
     margin: 2em auto 1.5em;
-    background: #66a066; }
+    background: #507850; }
     @media screen and (min-width: 27em) {
       #content .main .project:not(:first-child):before {
         width: 80%; } }

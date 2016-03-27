@@ -23,20 +23,22 @@ $header-image-mask: linear-gradient($header-image-mask-color, $header-image-mask
 $THEME: green
 
 $action-color: rgba(255, 255, 255, 1)
-$base-font-color: rgba(102, 102, 102, 1)
-$body-bg-color: rgba(240, 240, 240, 0.8)
+$base-font-color: rgba(80, 80, 80, 1)
+$body-bg-color: rgba(180, 180, 180, 0.8)
 
 @if $THEME == green
-  $base-font-color: rgba(102, 160, 102, 1)
-  $body-bg-color: rgba(210, 245, 220, 0.8)
+  $base-font-color: rgba(80, 120, 80, 1)
+  $body-bg-color: rgba(180, 230, 190, 0.8)
 
 @else if $THEME == blue
-  $base-font-color: rgba(102, 102, 160, 1)
-  $body-bg-color: rgba(240, 240, 255, 0.8)
+  $base-font-color: rgba(80, 80, 120, 1)
+  $body-bg-color: rgba(180, 190, 230, 0.8)
 
 @else if $THEME == red
-  $base-font-color: rgba(160, 102, 102, 1)
-  $body-bg-color: rgba(255, 240, 240, 0.8)
+  $base-font-color: rgba(120, 80, 80, 1)
+  $body-bg-color: rgba(230, 180, 190, 0.8)
+
+$panel-bg-color: lighten($body-bg-color, 30%)
 
 $nav-btn-bg-color: rgba(0, 0, 0, 0.4)
 $nav-btn-bg-color-hover: rgba(0, 0, 0, 1)
@@ -152,7 +154,7 @@ header
 
   section
     padding: 1em 2em
-    background-color: lighten($body-bg-color, 10%)
+    background-color: $panel-bg-color
 
   .main
     .project
