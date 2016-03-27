@@ -4,29 +4,37 @@
 {% block title %}Projects{% endblock %}
 
 
-{% block pagehead %}
-    <h1>Projects</h1>
+{% block page_header %}
+  <h3>Projects</h3>
 {% endblock %}
 
 
-{% block content %}
-
+{% block main_section %}
+  <section class="main">
     {% for object in object_list %}
-        <article class='panel-default'>
+      <article class='project'>
+        <h4 class='project-title'>{{ object.title }}</h4>
 
-            <h2>{{ object.title }}</h2>
+        <a target='_blank' href='http://{{ object.site_link }}'>
+          <img class='project-screenshot' src="{{ object.screenshot.url }}" />
+        </a>
 
-            <p>{{ object.desc|linebreaks }}</p>
+        <p class='project-desc'>{{ object.desc|linebreaks }}</p>
 
-            <p>
-                <a target="_blank" href='http://{{ object.site_link }}'>{{ object.site_link }}</a>
-                {% if object.site_link and object.code_link %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-                {% endif %}
-                <a target="_blank" href='http://{{ object.code_link }}'>{{ object.code_link }}</a>
-            </p>
+        <p class='project-links'>
+          <div class="site-link">
+            <a target="_blank" href='http://{{ object.site_link }}'>
+              {{ object.site_link }}
+            </a>
+          </div>
 
-        </article>
+          <div class="code-link">
+            <a target="_blank" href='http://{{ object.code_link }}'>
+              {{ object.code_link }}
+            </a>
+          </div>
+        </p>
+      </article>
     {% endfor %}
-
+  </section>
 {% endblock %}

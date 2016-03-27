@@ -3,141 +3,127 @@
 <html>
 <head>
 
-    <title>
-        {% block title %}
-            Generic title
-        {% endblock %}
-    </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <title>
+    {% block title %}
+    Generic title
+    {% endblock %}
+  </title>
+
+  <link href="https://file.myfontastic.com/mSG42fbQuDoUAhq9Jo9U67/icons.css" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
 <body>
 
-    <div class="container">
+  <div id='page'>
 
-        <nav class='navbar navbar-inverse navbar-fixed-top'>
-            <div class='container'>
+    <header>
 
-                <div class='container-fluid'>
-                <ul class='nav navbar-nav'>
+      <nav>
+        <ul id='nav-list'>
 
-                    <li>
-                        <a class='navbar-brand'
-                            href="{% url 'home' %}">
-                            <strong>
-                                Home
-                            </strong>
-                        </a>
-                    </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="{% url 'home' %}">
+              <strong>Home</strong>
+            </a>
+          </li>
 
-                    <li>
-                        <a class='navbar-brand'
-                            href="{% url 'projects_list' %}">
-                            <strong>
-                                Projects
-                            </strong>
-                        </a>
-                    </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="{% url 'projects_list' %}">
+              <strong>Projects</strong>
+            </a>
+          </li>
 
-                    <li>
-                        <a class='navbar-brand'
-                            href="http://blog.tannerjlake.com">
-                            <strong>
-                                Blog
-                            </strong>
-                        </a>
-                    </li>
+          <li class='nav-item'>
+            <a class='nav-link' href="http://blog.tannerjlake.com">
+              <strong>Blog</strong>
+            </a>
+          </li>
 
-                </ul>
+        </ul>
+      </nav>
 
-                    <p class="navbar-text navbar-right">
-                        a django project by tanner lake
-                    </p>
+      <div class='page-header-text'>
+        <h1>Tanner Lake</h1>
+        <h2>Web Developer</h2>
+      </div>
 
-                </div>
-            </div>
-        </nav>
+    </header>
 
 
-        <div class='row'>
-            <div id='content-col' class='col-sm-7'>
-                <div class='page-header'>
-                    <div class='panel-default'>
+    <div id='content'>
 
-                        {% block pagehead %}
-                            Generic Page Header
-                        {% endblock %}
+      {% block page_header %}
+        <h3>Generic Page Header</h3>
+      {% endblock %}
 
-                    </div>
-                </div>
+      {% block main_section %}
+        <section class='main'>
+          {% block main_section_header %}
+            <article class='section-header'>
+              <h4>Generic Section Header</h4>
+            </article>
+          {% endblock %}
 
+          {% block main_section_content %}
+            <article class='section-content'>
+              <p>Content content content content</p>
+            </article>
+          {% endblock %}
+        </section>
+      {% endblock %}
 
-                {% block content %}
-                    <h2>
-                        Generic title
-                    </h2>
+      {% block sidebar_section %}
+        <section class='sidebar'>
+          {% block sidebar_section_header %}
+            <article class="section-header">
+              <h4>Need Something?</h4>
+            </article>
+          {% endblock %}
 
-                    <p>
-                        Nothing interesting yet
-                    </p>
-                {% endblock %}
+          {% block sidebar_section_content %}
+            <article class="section-content">
+              <p>
+                You can find me, or things relating to me, at
+                several places around the web!
+              </p>
 
-            </div>
+              <p>
+                Wanna see if I have anything quick and witty to say?
+                Find me on Twitter
+                <a href="https://twitter.com/Tanotaur">@Tanotaur</a>!
+              </p>
 
-            <div class='col-sm-4 col-sm-offset-1'>
-                <div class='panel-default'>
-                    {% block sidebar %}
-                        <h2>
-                            Need Something?
-                        </h2>
-                        <p>
-                            You can find me, or things relating to me, at
-                            several places around the web!
-                        </p>
+              <p>
+                Curious about what I've been working on? Browse
+                through my <a href="https://github.com/tlake">GitHub</a>!
+              </p>
 
-                        <p>
-                            Wanna see if I have anything quick and witty to say?
-                            Find me on Twitter
-                            <a href="https://twitter.com/Tanotaur">
-                            @Tanotaur</a>!
-                        </p>
-
-                        <p>
-                            Curious about what I've been working on? Browse
-                            through my
-                            <a href="https://github.com/tlake">GitHub</a>!
-                        </p>
-
-                        <p>
-                            In the market for a developer? I'm looking for work!
-                            Please take a moment to look over my
-                            <a href="https://www.linkedin.com/in/tannerlake">LinkedIn</a>
-                            and to read through my <a href="{{ view.resume_link }}">resume</a>.
-                        </p>
-                    {% endblock%}
-                </div>
-            </div>
-        </div>
-
-        <div class='container'>
-            <div class='navbar-fixed-bottom'>
-                <div class='container-fluid'>
-                    <p class='panel-default navbar-right'>
-                        <small>image credit:
-                        <a href='http://www.jairophoto.com/blog/downtown-seattle-out-of-focus/'>Jairo Rodriguez</a>
-                        </small>
-                    </p>
-                </div>
-            </div>
-        </div>
+              <p>
+                In the market for a developer? I'm looking for work!
+                Please take a moment to look over my
+                <a href="https://www.linkedin.com/in/tannerlake">LinkedIn</a>
+                and to read through my <a href="{{ view.resume_link }}">resume</a>.
+              </p>
+            </article>
+          {% endblock%}
+        </section>
+      {% endblock %}
 
     </div>
 
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <footer>
+    <p>&copy; 2016 Tanner Lake</p>
+    <p>Header image courtesy of
+      <a href="http://exoteric.roach.org/bg/">Blatte's Backgrounds</a>
+    </p>
+    </footer>
+
+  </div>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 </body>
 </html>
