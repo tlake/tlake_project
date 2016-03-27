@@ -226,6 +226,7 @@ header {
   @media screen and (min-width: 27em) {
     header {
       height: 20em;
+      background-color: black;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -233,6 +234,7 @@ header {
   @media screen and (min-width: 49em) {
     header {
       height: 25em;
+      background-color: black;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -304,15 +306,15 @@ header {
   #content .main .project .project-screenshot {
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4); }
   #content .main .project .site-link:before {
-    content: "a";
     padding-right: 0.25em;
     vertical-align: middle;
-    font-family: untitled-font-1; }
+    font-family: untitled-font-1;
+    content: "a"; }
   #content .main .project .code-link:before {
-    content: "b";
     padding-right: 0.25em;
     vertical-align: middle;
-    font-family: untitled-font-1; }
+    font-family: untitled-font-1;
+    content: "b"; }
   #content .sidebar {
     margin-top: 4em; }
   @media screen and (min-width: 27em) {
@@ -326,12 +328,10 @@ header {
         display: block;
         margin-right: 2.35765%;
         width: 57.35098%;
-        margin-left: 8.5298%;
-        padding-top: 0em; }
+        margin-left: 8.5298%; }
         #content .main:last-child {
           margin-right: 0; }
         #content .main .project {
-          margin: 1em 0em;
           max-width: 1200px;
           margin-left: auto;
           margin-right: auto; }
