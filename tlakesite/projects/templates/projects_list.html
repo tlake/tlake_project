@@ -12,28 +12,29 @@
 {% block main_section %}
   <section class="main">
     {% for object in object_list %}
-      <div class="subsection">
-        <article class="section-header">
-          <h4>{{ object.title }}</h4>
-        </article>
+      <article class='project'>
+        <h4 class='project-title'>{{ object.title }}</h4>
 
-        <article class='section-content'>
-          <p>{{ object.desc|linebreaks }}</p>
-          <p>
-              <a target="_blank" href='http://{{ object.site_link }}'>
-                {{ object.site_link }}
-              </a>
+        <a target='_blank' href='http://{{ object.site_link }}'>
+          <img class='project-screenshot' src="{{ object.screenshot.url }}" />
+        </a>
 
-              {% if object.site_link and object.code_link %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-              {% endif %}
+        <p class='project-desc'>{{ object.desc|linebreaks }}</p>
 
-              <a target="_blank" href='http://{{ object.code_link }}'>
-                {{ object.code_link }}
-              </a>
-          </p>
-        </article>
-      </div>
+        <p class='project-links'>
+          <div class="site-link">
+            <a target="_blank" href='http://{{ object.site_link }}'>
+              {{ object.site_link }}
+            </a>
+          </div>
+
+          <div class="code-link">
+            <a target="_blank" href='http://{{ object.code_link }}'>
+              {{ object.code_link }}
+            </a>
+          </div>
+        </p>
+      </article>
     {% endfor %}
   </section>
 {% endblock %}
