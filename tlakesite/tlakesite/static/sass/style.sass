@@ -1,45 +1,220 @@
-html
-  background: url("../images/background.jpg") no-repeat left center fixed
-  -webkit-background-size: cover
-  -moz-background-size: cover
-  -o-background-size: cover
+@import "bourbon/bourbon"
+@import "neat/neat"
+@import "base/base"
+
+
+// ################################
+// Variable Definitions
+// ################################
+
+// Breakpoints
+$bp-tablet: new-breakpoint(min-width 27em)
+$bp-desktop: new-breakpoint(min-width 49em)
+
+// Header image
+$header-image-height-mobile: 13em
+$header-image-height-tablet: 20em
+$header-image-height-desktop: 25em
+
+$header-image-mask-color: rgba(0, 0, 0, 0.2)
+$header-image-mask: linear-gradient($header-image-mask-color, $header-image-mask-color)
+
+// Coloration
+$THEME: green
+
+$action-color: rgba(255, 255, 255, 1)
+$base-font-color: rgba(80, 80, 80, 1)
+$body-bg-color: rgba(180, 180, 180, 0.8)
+
+@if $THEME == green
+  $base-font-color: rgba(80, 120, 80, 1)
+  $body-bg-color: rgba(180, 230, 190, 0.8)
+
+@else if $THEME == blue
+  $base-font-color: rgba(80, 80, 120, 1)
+  $body-bg-color: rgba(180, 190, 230, 0.8)
+
+@else if $THEME == red
+  $base-font-color: rgba(120, 80, 80, 1)
+  $body-bg-color: rgba(230, 180, 190, 0.8)
+
+$panel-bg-color: lighten($body-bg-color, 30%)
+
+$nav-btn-bg-color: rgba(0, 0, 0, 0.4)
+$nav-btn-bg-color-hover: rgba(0, 0, 0, 1)
+
+// <h*> tag sizing scale
+$heading-scale-ratio: $major-second
+$heading-scale-base: 1em
+
+
+// ################################
+// Custom Mixins
+// ################################
+
+=PageHeader
+  background-color: black
   background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+=ProjectLinkIcons
+  padding-right: 0.25em
+  vertical-align: middle
+  font-family: untitled-font-1
+
+
+// ################################
+// Base Styles
+// ################################
 
 body
-  padding-top: 140px
-  background: transparent
-  font-size: 100%
+  margin: unset
+  color: $base-font-color
+  background-color: $body-bg-color
+  text-align: center
 
-.navbar
-  font-size: 1.85em
+h1
+  font-size: modular-scale(6, $heading-scale-base, $heading-scale-ratio)
+h2
+  font-size: modular-scale(5, $heading-scale-base, $heading-scale-ratio)
+h3
+  font-size: modular-scale(4, $heading-scale-base, $heading-scale-ratio)
+h4
+  font-size: modular-scale(3, $heading-scale-base, $heading-scale-ratio)
+h5
+  font-size: modular-scale(2, $heading-scale-base, $heading-scale-ratio)
+h6
+  font-size: modular-scale(1, $heading-scale-base, $heading-scale-ratio)
 
-.navbar-inverse
-  border-color: #9d9d9d
+  @include media($bp-desktop)
+    margin: 1em
 
-.page-header
-  border-color: #9d9d9d
-  padding-bottom: 20px
-  margin-top: 1px
+#page
+// ################################
+// Page Header
+// ################################
+header
+  height: $header-image-height-mobile
+  +PageHeader
+  background-image: $header-image-mask, url('../images/ballet-800.jpg')
 
-.panel-default
-  font-size: 2em
-  color: #9d9d9d
-  background-color: #222
-  padding: 10px 20px 10px
-  border-color: #080808
-  border-radius: 10px
+  @include media($bp-tablet)
+    height: $header-image-height-tablet
+    +PageHeader
+    background-image: $header-image-mask, url('../images/ballet-1024.jpg')
 
-.row-top
-  padding-top: 70px
+  @include media($bp-desktop)
+    height: $header-image-height-desktop
+    +PageHeader
+    background-image: $header-image-mask, url('../images/ballet-1440.jpg')
 
-.navbar-right
-  padding-right: 10px
+  .page-header-text
+    color: $action-color
 
-.navbar-brand
-  margin-right: 40px
+    @include media($bp-tablet)
+      margin-top: 3em
 
-#content-col
-  padding-bottom: 60px
+    @include media($bp-desktop)
+      margin-top: 6em
 
-article.panel-default
-  margin-top: 20px
+  nav
+    @include outer-container
+    padding: 0.5em 0.5em 2em
+
+    .nav-item
+      @include span-columns(4)
+      @include omega(3n)
+
+    .nav-link
+      display: block
+      padding: 0.5em 0em
+      color: $action-color
+      background-color: $nav-btn-bg-color
+      border: 1px solid $action-color
+      border-radius: 5px
+
+      &:hover
+        color: lighten($action-color, 50%)
+        background-color: tint($nav-btn-bg-color, 10%)
+
+
+
+// ################################
+// Content
+// ################################
+
+#content
+  @include outer-container
+
+  h3
+    padding-top: 1em
+    padding-bottom: 1em
+    margin: unset
+
+  section
+    padding: 1em 2em
+    background-color: $panel-bg-color
+
+  .main
+    .project
+      &:not(:first-child)
+        &:before
+          // draws a separating line between each project
+          content: ""
+          display: block
+          height: 1px
+          width: 100%
+          margin: 2em auto 1.5em
+          background: $base-font-color
+
+          @include media($bp-tablet)
+            width: 80%
+
+      .project-screenshot
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4)
+
+      .site-link
+        &:before
+          +ProjectLinkIcons
+          content: 'a'
+
+      .code-link
+        &:before
+          +ProjectLinkIcons
+          content: 'b'
+
+  .sidebar
+    margin-top: 4em
+
+  // remember, parent is #content
+  @include media($bp-tablet)
+    padding: 1em 3em
+
+
+  // remember, parent is #content
+  @include media($bp-desktop)
+    padding: unset
+
+    .main
+      @include span-columns(7)
+      @include shift(1)
+
+      .project
+        @include outer-container
+
+      .project-screenshot
+        @include fill-parent
+        @include omega()
+
+    .sidebar
+      @include span-columns(3)
+      margin-top: 0em
+
+footer
+  padding: 1em 0
+  p
+    margin: 0
+    padding: 0
+    font-size: 0.8em
+    font-style: italic
