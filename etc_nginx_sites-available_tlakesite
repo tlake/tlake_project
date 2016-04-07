@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name tannerjlake.com;
+    server_name tannerjlake.com www.tannerjlake.com;
     client_max_body_size 500M;
     access_log /var/log/nginx/tlakesite.log;
     error_log /var/log/nginx/tlakesite_error.log;
