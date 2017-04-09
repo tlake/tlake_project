@@ -14,7 +14,9 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('home.urls')),
     url(r'^projects/', include('projects.urls')),
+    url(r'^import_campaign/', include('import_campaign.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(tlakesite.settings.MEDIA_URL, document_root=tlakesite.settings.MEDIA_ROOT)
+
