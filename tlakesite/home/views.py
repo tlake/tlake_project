@@ -17,7 +17,10 @@ class HomePageView(ListView):
     template_name = 'home.html'
 
     def resume_link(self):
-        _folder_id = ResumeFolderID.objects.first().folder_id
+        try:
+            _folder_id = ResumeFolderID.objects.first().folder_id
+        except AttributeError:
+            _folder_id = None
 
         def _get_credentials():
             """Gets valid user credentials from storage.

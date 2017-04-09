@@ -24,6 +24,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("TLAKESITE_DEBUG", False)
 
+print(SECRET_KEY)
+print(DEBUG)
+
 ALLOWED_HOSTS = ['tannerjlake.com', '*']
 
 
